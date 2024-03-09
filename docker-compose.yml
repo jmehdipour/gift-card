@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    depends_on:
+      main-db:
+          condition: service_healthy
+    ports:
+      - 8080:8080
+    command: >
+      sh -c "./gift-card database migrate &&
+             ./gift-card start --config config.yml"
+    environment:
+      GIFT_CARD_DATABASE_HOST: "main-database"
+      GIFT_CARD_DATABASE_PORT: 3306
+      GIFT_CARD_DATABASE_USER: "root"
+      GIFT_CARD_DATABASE_PASSWORD: "password"
+    volumes:
+      - .compose/config.yml:/app/config.yml
+  main-db:
+    image: mariadb:10.4.10
+    container_name: main-database
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: gift-card
+      MYSQL_USER: gift-card
+      MYSQL_PASSWORD: password
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+    driver: local
