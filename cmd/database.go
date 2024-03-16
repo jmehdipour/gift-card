@@ -11,5 +11,5 @@ var databaseCMD = &cobra.Command{
 
 func init() {
 	databaseCMD.AddCommand(migrateDatabaseCMD)
-	//databaseCMD.AddCommand(seedDatabaseCMD)
+	databaseCMD.AddCommand(seedDatabaseCMD)
 }

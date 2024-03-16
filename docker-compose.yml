@@ -8,8 +8,9 @@ services:
     ports:
       - 8080:8080
     command: >
-      sh -c "./gift-card database migrate &&
-             ./gift-card start --config config.yml"
+      sh -c "./gift-card --config config.yml database migrate &&
+             ./gift-card --config config.yml database seed &&
+             ./gift-card --config config.yml start"
     environment:
       GIFT_CARD_DATABASE_HOST: "main-database"
       GIFT_CARD_DATABASE_PORT: 3306

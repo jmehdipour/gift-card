@@ -16,3 +16,7 @@ up: prepare-compose
 down:
 	docker-compose down
 
+integration-test: up
+	go test -tags integration -v ./internal/it
+	docker-compose down --volumes
+
