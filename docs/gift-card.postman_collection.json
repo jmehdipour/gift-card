@@ -12,16 +12,73 @@
 				{
 					"name": "create",
 					"request": {
-						"method": "GET",
-						"header": []
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk5ODU3MDIsInVzZXJfaWQiOjF9.zHqL9IJCKEnVZ5Gp5noVsDy_s8Sjlvh_hZJQN4WDjvo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 10,\n    \"giftee_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gift-cards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gift-cards"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "update status",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk5NzY3NDUsInVzZXJfaWQiOjF9.vC3gmVpUDUM3rr5xvM9KqfDcwYLZHjXOsv2Z0ADQC5I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"accepted\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/gift-cards/1/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gift-cards",
+								"1",
+								"status"
+							]
+						}
 					},
 					"response": []
 				},
@@ -29,7 +86,51 @@
 					"name": "received gift cards",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk5ODU3MDIsInVzZXJfaWQiOjF9.zHqL9IJCKEnVZ5Gp5noVsDy_s8Sjlvh_hZJQN4WDjvo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/gift-cards/received",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gift-cards",
+								"received"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sent gift cards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk5ODU3MDIsInVzZXJfaWQiOjF9.zHqL9IJCKEnVZ5Gp5noVsDy_s8Sjlvh_hZJQN4WDjvo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/gift-cards/sent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"gift-cards",
+								"sent"
+							]
+						}
 					},
 					"response": []
 				}
@@ -45,7 +146,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"jabbar\",\n    \"email\": \"jabbar@example.com\",\n    \"password\": \"123456\"\n}",
+							"raw": "{\n    \"username\": \"jabbar\",\n    \"email\": \"jabbar@snapp.cab\",\n    \"password\": \"2170194\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -74,7 +175,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"jabbar@example.com\",\n    \"password\": \"123456\" \n}",
+							"raw": "{\n    \"email\": \"jabbar@snapp.cab\",\n    \"password\": \"2170194\" \n}",
 							"options": {
 								"raw": {
 									"language": "json"
